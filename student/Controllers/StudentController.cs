@@ -22,21 +22,23 @@ namespace student.Controllers
             return View(students);
         }
 
-        [HttpDelete]
         public IActionResult Delete(int id)
         {
+            _studentRepository.DeleteStudent(id);
             return RedirectToAction("Index");
         }
 
         [HttpPost]
         public IActionResult Add(Student student)
         {
+            _studentRepository.CreateStudent(student);
             return RedirectToAction("Index");
         }
 
         [HttpPut]
         public IActionResult Update(Student student)
         {
+            _studentRepository.UpdateStudent(student);
             return RedirectToAction("Index");
         }
     }

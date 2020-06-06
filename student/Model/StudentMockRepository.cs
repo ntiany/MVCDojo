@@ -39,7 +39,8 @@ namespace student.Model
 
         public void DeleteStudent(int id)
         {
-            _students.Remove(_students.FirstOrDefault(s => s.Id == id));
+            var student = _students.FirstOrDefault(s => s.Id == id);
+            _students.Remove(student);
         }
 
         public IEnumerable<Student> GetStudents()

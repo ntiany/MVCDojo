@@ -1,10 +1,24 @@
 ﻿@model IEnumerable<Student>
 
 
-@foreach (var student in Model)
-{
-    <div>@student.Id</div>
-    <div>@student.Name</div>
-    <div>@student.LastName</div>
-    <div>@student.Age</div>
-}
+<div>
+    <a href="student/add">Add</a>
+</div>
+<div>
+    <table>
+        <tr>
+            <td>ID</td> <td>First Name</td> <td> Last Name</td> <td>Age</td> <td>Action</td>
+        </tr>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td> <td>@student.Name</td> <td>@student.LastName</td> <td>Age</td>
+                <td> <a 
+                         asp-controller="Student"
+                         asp-action="Delete"
+                         asp-route-id="@student.Id">Delete</a>
+                     <a href="student/edit">Edit</a> </td>
+            </tr>
+        }
+    </table>
+</div>

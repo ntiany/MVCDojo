@@ -18,7 +18,7 @@ namespace student
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<IStudentRepository, StudentMockRepository>();
+            services.AddSingleton<IStudentRepository, StudentMockRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
