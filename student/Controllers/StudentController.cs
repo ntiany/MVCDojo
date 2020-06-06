@@ -21,5 +21,23 @@ namespace student.Controllers
             var students = _studentRepository.GetStudents();
             return View(students);
         }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Add(Student student)
+        {
+            return RedirectToAction("Index");
+        }
+
+        [HttpPut]
+        public IActionResult Update(Student student)
+        {
+            return RedirectToAction("Index");
+        }
     }
 }
