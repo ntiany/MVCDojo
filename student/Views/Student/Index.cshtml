@@ -2,7 +2,8 @@
 
 
 <div>
-    <a href="student/add">Add</a>
+    <a asp-controller="Student"
+       asp-action="Add">Add</a>
 </div>
 <div>
     <table>
@@ -12,12 +13,16 @@
         @foreach (var student in Model)
         {
             <tr>
-                <td>@student.Id</td> <td>@student.Name</td> <td>@student.LastName</td> <td>Age</td>
+                <td>@student.Id</td> <td>@student.Name</td> <td>@student.LastName</td> <td>@student.Age</td>
                 <td> <a 
                          asp-controller="Student"
                          asp-action="Delete"
                          asp-route-id="@student.Id">Delete</a>
-                     <a href="student/edit">Edit</a> </td>
+                     <a
+                        asp-controller="Student"
+                        asp-action="Update"
+                        asp-route-id="@student.Id">Edit</a>
+                </td>
             </tr>
         }
     </table>

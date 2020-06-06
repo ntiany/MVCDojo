@@ -22,23 +22,41 @@ namespace student.Controllers
             return View(students);
         }
 
+        
         public IActionResult Delete(int id)
         {
             _studentRepository.DeleteStudent(id);
             return RedirectToAction("Index");
         }
 
+        public IActionResult Update(int id)
+        {
+            var student = _studentRepository.GetStudents().FirstOrDefault(s => s.Id == id);
+            return View(student);
+        }
+
+
+        [HttpPost]
+        public IActionResult Update(Student student)
+        {
+            if (ModelState.IsValid)
+            {
+                _studentRepository.UpdateStudent(student);
+                return RedirectToAction("Index");
+            }
+
+            return View(student);
+        }
+
+        public IActionResult Add()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Add(Student student)
         {
             _studentRepository.CreateStudent(student);
-            return RedirectToAction("Index");
-        }
-
-        [HttpPut]
-        public IActionResult Update(Student student)
-        {
-            _studentRepository.UpdateStudent(student);
             return RedirectToAction("Index");
         }
     }
