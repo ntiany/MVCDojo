@@ -1,1 +1,10 @@
-﻿<div>something</div>
+﻿@model IEnumerable<Student>
+
+
+@foreach (var student in Model)
+{
+    <div>@student.Id</div>
+    <div>@student.Name</div>
+    <div>@student.LastName</div>
+    <div>@student.Age</div>
+}

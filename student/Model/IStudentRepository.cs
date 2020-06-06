@@ -7,5 +7,6 @@ namespace student.Model
 {
     public interface IStudentRepository
     {
+        public IEnumerable<Student> GetStudents();
     }
 }

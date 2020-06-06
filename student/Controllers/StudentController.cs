@@ -18,7 +18,8 @@ namespace student.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var students = _studentRepository.GetStudents();
+            return View(students);
         }
     }
 }
