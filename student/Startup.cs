@@ -29,6 +29,8 @@ namespace student
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHttpsRedirection();
+
             app.Use(async (context, next) =>
             {
                 await next();
@@ -39,7 +41,16 @@ namespace student
                 }
             });
 
-            app.UseHttpsRedirection();
+            //app.Use(async (context, next) =>
+            //{
+            //    await next();
+            //    if (context.Response.StatusCode == 404)
+            //    {
+            //        context.Response.Redirect("/");
+            //    }
+            //});
+
+
             app.UseStaticFiles();
             app.UseRouting();
 
